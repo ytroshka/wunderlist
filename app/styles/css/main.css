@@ -1,0 +1,305 @@
+@font-face {
+  font-family: 'LatoWeb';
+  src: url('../../fonts/Lato-Regular.eot'); /* IE9 Compat Modes */
+  src: url('../../fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../../fonts/Lato-Regular.woff2') format('woff2'), /* Modern Browsers */
+  url('../../fonts/Lato-Regular.woff') format('woff'), /* Modern Browsers */
+  url('../../fonts/Lato-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+* {
+  font-family: 'LatoWeb', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  background-size: 100vw 100vh;
+  background: url(../../img/main.jpg) no-repeat fixed;
+}
+
+/* HEADER */
+
+header {
+  width: 100%;
+  background-color: #649EDC;
+  padding: 10px;
+  position: relative;
+}
+
+.user {
+  color: white;
+  font-size: 18px;
+}
+
+/* CONTENT */
+
+.contentWrapper {
+  height: 100%;
+  position: relative;
+}
+
+/* LISTS */
+
+.lists {
+  width: 300px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.lists ul li {
+  position: relative;
+  list-style-type: none;
+  margin: 5px;
+}
+
+.lists ul li button {
+  width: 100%;
+  position: relative;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 16px;
+  color: #505050;
+  padding: 15px;
+}
+
+.lists ul li button.goToListButton {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 25px;
+  width: auto;
+  padding: 5px;
+  right: 5px;
+  color: #649EDC;
+}
+
+@media screen and (max-width: 768px) {
+  .lists ul li button.goToListButton {
+    display: block;
+  }
+}
+
+.lists ul li button.deleteListButton {
+  position: absolute;
+  width: auto;
+  color: red;
+  padding: 5px;
+  right: 30px;
+  font-size: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lists ul li button.listItem {
+  border: 1px solid lightgrey;
+}
+
+/* TASKS */
+
+.tasks {
+  width: calc(100% - 300px);
+  position: absolute;
+  overflow-y: auto;
+  left: 300px;
+  top: 0;
+  padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .tasks {
+    width: 100%;
+    left: 0;
+  }
+}
+
+.createListButton {
+  display: block;
+  font-size: 18px;
+  background-color: #649EDC;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin: 6px;
+  padding: 10px 15px;
+}
+
+.addList {
+  z-index: 10;
+  width: 300px;
+  padding: 10px;
+  background-color: white;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.addList input[type="text"] {
+  width: 200px;
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  border: 1px solid #909090;
+}
+
+.buttonsWrapper {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.addList input[type="submit"],
+.addList input[type="button"] {
+  border: none;
+  background-color: #649EDC;
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+.addList label {
+  text-align: center;
+  display: block;
+}
+
+.addTask {
+  position: relative;
+}
+
+.addTask input[type="text"] {
+  border: 1px solid #909090;
+  padding: 10px 90px 10px 10px;
+  width: 100%;
+}
+
+.addTask input[type="submit"] {
+  cursor: pointer;
+  color: #649EDC;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 38px;
+  right: 0;
+  width: 80px;
+}
+
+.formWrapper {
+  margin-top: 5px;
+}
+
+.tasks ul {
+  margin-top: 20px;
+}
+
+.tasks ul li {
+  height: auto;
+  background-color: white;
+  list-style-type: none;
+  padding: 10px 10px 10px 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 15px;
+  color: #505050;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.taskWrapper {
+  margin-left: 30px;
+}
+
+.taskCheckbox {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.showCompletedButton {
+  font-size: 15px;
+  background-color: #649EDC;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  display: block;
+  border: none;
+}
+
+.finishedTasks {
+  opacity: 0.85;
+}
+
+.lists ul li button.active {
+  border: 2px solid #649EDC;
+}
+
+.tasks ul li.active {
+  background-color: rgba(100, 158, 220, 0.9);
+
+}
+
+.listName {
+  color: white;
+}
+
+.logoutButton {
+  display: block;
+  text-decoration: none;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+}
+
+.tasks ul li label,
+.finishedTasks label {
+  cursor: pointer;
+  width: 100%;
+  display: block;
+}
+
+.listOptions label {
+  padding: 20px 0;
+}
+
+.setDateButton {
+  background-color: #649EDC;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  color: white;
+  width: 100px;
+  height: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .lists {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    background: white;
+  }
+}

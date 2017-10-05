@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="authApp">
+<head>
+  <title>Wunderlist</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="/app/styles/css/auth.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="/app/controllers/authController.js"></script>
+  <meta name="viewport" content="initial-scale=1">
+</head>
+<body ng-controller="AuthController">
+<div class="wrapper">
+  <div class="loginForm">
+    <form method="post"
+          ng-hide="!auth"
+          class="auth">
+      <input type="text"
+             ng-model="user.email"
+             placeholder="Email">
+      <input type="password"
+             ng-model="user.password"
+             placeholder="Password">
+      <span>{{error}}</span>
+      <input type="submit"
+             ng-click="login(user)"
+             value="Log In"
+             class="loginButton">
+    </form>
+
+    <button ng-click="change()" class="changeButton">{{buttonName}}</button>
+
+    <form method="post"
+          ng-hide="auth"
+          class="registration">
+      <input type="text"
+             ng-model="user.email"
+             placeholder="Email">
+      <input type="password"
+             ng-model="user.password"
+             placeholder="Password">
+      <span>{{error}}</span>
+      <input type="submit"
+             ng-click="register(user)"
+             value="Sign up"
+             class="loginButton">
+    </form>
+  </div>
+</div>
+</body>
+</html>

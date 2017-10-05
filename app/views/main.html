@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="listApp">
+<head>
+  <title>Wunderlist</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="/app/styles/css/main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="/app/controllers/listController.js"></script>
+  <meta name="viewport" content="initial-scale=1.0">
+</head>
+<body>
+<div ng-controller="listController" class="wrapper">
+  <header>
+    <div class="authData">
+      <div class="user">
+        {{userEmail}}
+      </div>
+      <div class="listName">
+        {{currentList}}
+      </div>
+      <a href="/logout" class="logoutButton">Log out</a>
+    </div>
+  </header>
+  <div class="contentWrapper">
+    <div class="lists">
+      <button ng-click="addList()" class="createListButton">Create list</button>
+      <ul>
+        <li ng-repeat="list in lists">
+          <button ng-click="loadTask(list['_id'], $index)" class="listItem {{list.style}}">{{list.title}}
+          </button>
+          <button ng-click="loadTask(list['_id'], $index)" onClick="openList()" class="goToListButton">>
+          </button>
+          <button ng-click="removeList(list['_id'])" class="deleteListButton">×</button>
+        </li>
+      </ul>
+      <form ng-hide="createList" class="addList">
+        <label>Create new list</label>
+        <input type="text" placeholder="List name" ng-model="list.listName" class="addListField" maxLength="30">
+        <div class="buttonsWrapper">
+          <input type="submit" value="Create" ng-click="addList(list)">
+          <input type="button" value="Cancel" ng-click="closeAddList()" class="cancelButton">
+        </div>
+      </form>
+    </div>
+    <div class="tasks">
+      <button class="showCompletedButton backToListsButton" onclick="backToLists()">Back to lists</button>
+      <div class="formWrapper">
+        <form class="addTask">
+          <input type="text" placeholder="Add todo" ng-model="task.taskName" class="addTaskButton"
+                 maxlength="85">
+          <input type="submit" value="+" ng-click="addTask(task)">
+        </form>
+      </div>
+      <ul>
+        <li ng-repeat="task in tasks" ng-hide="task.status" class="{{task.style}}">
+          <input type="checkbox" ng-model="task.status" ng-change="changeTaskState($index)"
+                 class="taskCheckbox">
+          <div class="taskWrapper">
+            <label ng-click="showInfo(task, $index)">{{task.title}}</label>
+            <span>{{task.date | date}}</span>
+          </div>
+        </li>
+      </ul>
+      <button ng-click="showCompleted()" class="showCompletedButton">Show completed todos</button>
+      <ul class="finishedTasksList">
+        <li ng-repeat="finishedTask in finishedTasks" ng-hide="finishedTask.state"
+            class="finishedTasks {{finishedTask.style}}">
+          <input type="checkbox"
+                 class="taskCheckbox"
+                 ng-model="finishedTask.status"
+                 ng-change="changeFinishedTaskState($index)">
+          <div class="taskWrapper">
+            <label ng-click="showInfo(finishedTask, $index)">{{finishedTask.title}}</label>
+          </div>
+        </li>
+      </ul>
+      <form class="addList listOptions" ng-hide="showTaskInfo">
+        <label>Task "{{currentTask.title}}" additional data</label>
+        <span>Due Date: </span><input type="date" ng-model="date" class="addListField dateButton calendar">
+        <div class="buttonsWrapper">
+          <button ng-click="setDate(currentTask,date)" class="setDateButton">Set Due Date</button>
+          <input type="submit" value="Cancel" ng-click="closeShowTaskInfo()" class="cancelButton">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

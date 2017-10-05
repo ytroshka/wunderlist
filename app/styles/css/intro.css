@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'LatoWebLight';
+  src: url('../../fonts/Lato-Light.eot'); /* IE9 Compat Modes */
+  src: url('../../fonts/Lato-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../../fonts/Lato-Light.woff2') format('woff2'), /* Modern Browsers */
+  url('../../fonts/Lato-Light.woff') format('woff'), /* Modern Browsers */
+  url('../../fonts/Lato-Light.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+body {
+  font-family: 'LatoWebLight', sans-serif;
+  background-size: 100vw 100vh;
+  background: url(../../img/main.jpg) no-repeat fixed;
+}
+
+.wrapper {
+  width: 66%;
+  min-width: 400px;
+  margin: 150px auto auto;
+}
+
+h1 {
+  margin-top: 40px;
+  font-size: 40px;
+  font-weight: normal;
+  color: white;
+}
+
+.text {
+  color: white;
+  display: block;
+  font-size: 21px;
+  margin-top: 30px;
+}
+
+.login {
+  display: block;
+  background-color: #649EDC;
+  width: 300px;
+  color: white;
+  text-decoration: none;
+  height: 40px;
+  font-size: 18px;
+  text-align: center;
+  line-height: 2.4em;
+  margin-top: 40px;
+}
